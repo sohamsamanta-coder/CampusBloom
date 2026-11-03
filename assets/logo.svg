@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">CampusBloom logo</title><desc id="desc">A young green plant growing inside a circular frame.</desc>
+  <defs><linearGradient id="ring" x1="8" y1="8" x2="56" y2="56"><stop stop-color="#172033"/><stop offset="1" stop-color="#4a8710"/></linearGradient><linearGradient id="leaf" x1="14" y1="14" x2="50" y2="48"><stop stop-color="#c8f542"/><stop offset="1" stop-color="#4a9a42"/></linearGradient></defs>
+  <circle cx="32" cy="32" r="28" fill="#f7faef" stroke="url(#ring)" stroke-width="3.5"/>
+  <circle cx="32" cy="32" r="21.5" fill="none" stroke="#dce9c8" stroke-width="1.2"/>
+  <path d="M32 48V29" fill="none" stroke="#397b42" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M31 34C18 34 13 26 14 15C26 15 33 22 31 34Z" fill="url(#leaf)" stroke="#4a9147" stroke-width=".8"/>
+  <path d="M32 28C32 16 40 10 51 11C51 23 44 29 32 28Z" fill="#8dcc55" stroke="#4a9147" stroke-width=".8"/>
+  <path d="M19 20Q25 22 29 31M47 16Q38 18 33 26" fill="none" stroke="#e8f7c8" stroke-width="1.2" stroke-linecap="round" opacity=".9"/>
+  <path d="M22 51H42" stroke="#172033" stroke-width="3" stroke-linecap="round"/><path d="M27 56H37" stroke="#76b900" stroke-width="3" stroke-linecap="round"/>
+</svg>

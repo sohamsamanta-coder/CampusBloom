@@ -1,0 +1,1850 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="#f7f8f4" name="theme-color" />
+    <meta
+      content="CampusBloom &mdash; a calm, practical student productivity planner for deadlines, focus sessions and academic progress."
+      name="description"
+    />
+    <title>CampusBloom &mdash; Student Productivity Planner</title>
+    <link href="assets/logo.svg" rel="icon" type="image/svg+xml" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script defer="" src="js/auth.js"></script>
+    <script defer="" src="js/app.js"></script>
+    <script defer="" src="js/assignments.js"></script>
+    <script defer="" src="js/calendar.js"></script>
+    <script defer="" src="js/focus-timer.js"></script>
+    <script defer="" src="js/academic.js"></script>
+    <script defer="" src="js/attendance-tracker.js"></script>
+    <script defer="" src="js/notes.js"></script>
+    <script defer="" src="js/reminders.js"></script>
+    <script defer="" src="js/analytics.js"></script>
+    <script defer="" src="js/backup.js"></script>
+  </head>
+  <body>
+    <!-- Login and registration screen shown before a user signs in. -->
+    <main aria-labelledby="authTitle" class="auth-screen" id="authScreen">
+      <div class="auth-layout">
+        <section aria-label="CampusBloom overview" class="auth-story">
+          <a aria-label="CampusBloom home" class="auth-brand" href="#auth">
+            <img alt="" class="auth-brand-logo" src="assets/logo.svg" />
+            <span>
+              <strong>
+                Campus
+                <em> Bloom </em>
+              </strong>
+              <small> Plan &middot; Focus &middot; Track &middot; Grow </small>
+            </span>
+          </a>
+          <div class="auth-story-copy">
+            <span class="auth-eyebrow">
+              <span class="auth-eyebrow-dot"> </span>
+              YOUR PERSONAL STUDY SPACE
+            </span>
+            <h1>
+              Make room for
+              <br />
+              <span> what matters. </span>
+            </h1>
+            <p>
+              One calm place to manage deadlines, build focus and keep your
+              academic goals moving.
+            </p>
+            <div class="auth-feature-list">
+              <div>
+                <span class="auth-feature-icon"> &checkmark; </span>
+                <span>
+                  <strong> Stay ahead of deadlines </strong>
+                  <small> Keep every assignment in view. </small>
+                </span>
+              </div>
+              <div>
+                <span class="auth-feature-icon"> ◷ </span>
+                <span>
+                  <strong> Make focus a habit </strong>
+                  <small> Small sessions grow into progress. </small>
+                </span>
+              </div>
+              <div>
+                <span class="auth-feature-icon"> &nearrow; </span>
+                <span>
+                  <strong> Track your academic progress </strong>
+                  <small> Attendance and semester SGPA, together. </small>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="auth-quote-card">
+            <img alt="" src="assets/plant-growing.svg" />
+            <p>
+              &ldquo;Discipline today,
+              <br />
+              freedom tomorrow.&rdquo;
+            </p>
+            <small> A little progress, every day. </small>
+          </div>
+          <div class="auth-story-footer">
+            A student planner designed for real study days.
+          </div>
+        </section>
+        <section class="auth-form-side">
+          <div class="auth-form-card">
+            <div class="auth-mobile-brand">
+              <img alt="" src="assets/logo.svg" />
+              <strong>
+                Campus
+                <em> Bloom </em>
+              </strong>
+            </div>
+            <div aria-label="Account access" class="auth-tabs" role="tablist">
+              <button
+                aria-controls="loginPanel"
+                aria-selected="true"
+                class="auth-tab active"
+                id="loginTab"
+                role="tab"
+                type="button"
+              >
+                Log in
+              </button>
+              <button
+                aria-controls="registerPanel"
+                aria-selected="false"
+                class="auth-tab"
+                id="registerTab"
+                role="tab"
+                type="button"
+              >
+                Create account
+              </button>
+            </div>
+            <section
+              aria-labelledby="loginTab"
+              class="auth-form-panel"
+              id="loginPanel"
+              role="tabpanel"
+            >
+              <p class="auth-eyebrow">WELCOME BACK</p>
+              <h2 id="authTitle">Good to see you again.</h2>
+              <p class="auth-subtitle">Log in to pick up where you left off.</p>
+              <form class="auth-form" id="loginForm" novalidate="">
+                <label for="loginEmail"> Email address </label>
+                <input
+                  autocomplete="username"
+                  id="loginEmail"
+                  maxlength="160"
+                  name="email"
+                  placeholder="you@example.com"
+                  required=""
+                  type="email"
+                />
+                <div class="auth-password-label">
+                  <label for="loginPassword"> Password </label>
+                  <button
+                    class="auth-show-password"
+                    data-password-toggle="loginPassword"
+                    type="button"
+                  >
+                    Show
+                  </button>
+                </div>
+                <input
+                  autocomplete="current-password"
+                  id="loginPassword"
+                  maxlength="128"
+                  minlength="6"
+                  name="password"
+                  placeholder="Enter your password"
+                  required=""
+                  type="password"
+                />
+                <p class="auth-error" id="loginError" role="alert"></p>
+                <button class="auth-submit" type="submit">
+                  Log in
+                  <span aria-hidden="true"> &rarr; </span>
+                </button>
+              </form>
+              <p class="auth-switch-copy">
+                New to CampusBloom?
+                <button id="showRegisterLink" type="button">
+                  Create an account
+                </button>
+              </p>
+            </section>
+            <section
+              aria-labelledby="registerTab"
+              class="auth-form-panel"
+              hidden=""
+              id="registerPanel"
+              role="tabpanel"
+            >
+              <p class="auth-eyebrow">START YOUR STUDY SPACE</p>
+              <h2>Create your account.</h2>
+              <p class="auth-subtitle">
+                Your own deadlines, focus sessions and academic tracker.
+              </p>
+              <form class="auth-form" id="registerForm" novalidate="">
+                <label for="registerName"> Your name </label>
+                <input
+                  autocomplete="name"
+                  id="registerName"
+                  maxlength="60"
+                  minlength="2"
+                  name="name"
+                  placeholder="e.g. Aman Sharma"
+                  required=""
+                  type="text"
+                />
+                <label for="registerEmail"> Email address </label>
+                <input
+                  autocomplete="email"
+                  id="registerEmail"
+                  maxlength="160"
+                  name="email"
+                  placeholder="you@example.com"
+                  required=""
+                  type="email"
+                />
+                <div class="auth-password-label">
+                  <label for="registerPassword"> Password </label>
+                  <button
+                    class="auth-show-password"
+                    data-password-toggle="registerPassword"
+                    type="button"
+                  >
+                    Show
+                  </button>
+                </div>
+                <input
+                  autocomplete="new-password"
+                  id="registerPassword"
+                  maxlength="128"
+                  minlength="6"
+                  name="password"
+                  placeholder="At least 6 characters"
+                  required=""
+                  type="password"
+                />
+                <label for="registerConfirmPassword"> Confirm password </label>
+                <input
+                  autocomplete="new-password"
+                  id="registerConfirmPassword"
+                  maxlength="128"
+                  minlength="6"
+                  name="confirmPassword"
+                  placeholder="Enter your password again"
+                  required=""
+                  type="password"
+                />
+                <p class="auth-error" id="registerError" role="alert"></p>
+                <button class="auth-submit" type="submit">
+                  Create account
+                  <span aria-hidden="true"> &rarr; </span>
+                </button>
+              </form>
+              <p class="auth-switch-copy">
+                Already registered?
+                <button id="showLoginLink" type="button">Log in</button>
+              </p>
+            </section>
+            <p class="auth-local-note">
+              <span aria-hidden="true"> ▣ </span>
+              Demo accounts and data stay in this browser.
+            </p>
+          </div>
+          <p class="auth-disclaimer">
+            Student project &middot; Local browser storage &middot; Not for
+            sensitive information
+          </p>
+        </section>
+      </div>
+    </main>
+    <!-- Main application: sidebar, top bar, dashboard and feature views. -->
+    <div class="app-shell" hidden="" id="appShell">
+      <aside aria-label="Main navigation" class="sidebar" id="sidebar">
+        <a
+          aria-label="CampusBloom dashboard"
+          class="brand"
+          data-nav="dashboard"
+          href="#dashboard"
+        >
+          <img alt="" class="brand-logo" src="assets/logo.svg" />
+          <span class="brand-copy">
+            <strong>
+              Campus
+              <em> Bloom </em>
+            </strong>
+            <small> Plan &middot; Focus &middot; Track &middot; Grow </small>
+          </span>
+        </a>
+        <nav class="side-nav">
+          <button class="nav-item active" data-nav="dashboard">
+            <span class="nav-icon"> ⌂ </span>
+            <span> Dashboard </span>
+          </button>
+          <button class="nav-item" data-nav="calendar-section">
+            <span class="nav-icon"> ▦ </span>
+            <span> Calendar </span>
+          </button>
+          <button class="nav-item" data-nav="assignments-page">
+            <span class="nav-icon"> ▤ </span>
+            <span> Assignments </span>
+          </button>
+          <button class="nav-item" data-nav="focus-section">
+            <span class="nav-icon"> ◷ </span>
+            <span> Focus Timer </span>
+          </button>
+          <button class="nav-item" data-nav="timetable-card">
+            <span class="nav-icon"> ▣ </span>
+            <span> Timetable </span>
+          </button>
+          <button class="nav-item" data-nav="attendance-page">
+            <span class="nav-icon"> ☑ </span>
+            <span> Attendance </span>
+          </button>
+          <button class="nav-item" data-nav="notes-page">
+            <span class="nav-icon"> ▧ </span>
+            <span> Notes </span>
+          </button>
+          <button class="nav-item" data-nav="analytics-page">
+            <span class="nav-icon"> ⌁ </span>
+            <span> Academic Progress </span>
+          </button>
+          <button class="nav-item" data-nav="cgpa-card">
+            <span class="nav-icon"> ▦ </span>
+            <span> SGPA Calculator </span>
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="nav-item settings-nav" data-nav="settings-page">
+            <span class="nav-icon"> ⚙ </span>
+            <span> Settings </span>
+          </button>
+          <div class="motivation-card">
+            <p>
+              &ldquo;A focused student today, a successful you tomorrow.&rdquo;
+            </p>
+            <img
+              alt="Small growing plant"
+              loading="lazy"
+              src="assets/plant-small.svg"
+            />
+            <span aria-hidden="true" class="motivation-dot"> </span>
+          </div>
+          <small class="sidebar-credit"> Made for better study days </small>
+        </div>
+      </aside>
+      <div class="main-column">
+        <header class="topbar">
+          <button
+            aria-expanded="false"
+            aria-label="Open navigation menu"
+            class="icon-button mobile-menu"
+            id="mobileMenu"
+          >
+            ☰
+          </button>
+          <div class="mobile-brand">
+            Campus
+            <em> Bloom </em>
+          </div>
+          <label class="search-box">
+            <span aria-hidden="true" class="search-icon"> &telrec; </span>
+            <input
+              aria-label="Search assignments and subjects"
+              autocomplete="off"
+              id="globalSearch"
+              placeholder="Search assignments, subjects, notes..."
+              type="search"
+            />
+            <button
+              aria-label="Clear search"
+              class="search-clear"
+              hidden=""
+              id="clearSearch"
+            >
+              &times;
+            </button>
+          </label>
+          <div class="top-actions">
+            <button
+              aria-label="Switch to dark theme"
+              class="icon-button"
+              id="themeToggle"
+              title="Toggle theme"
+            >
+              <span id="themeIcon"> ☼ </span>
+            </button>
+            <button
+              aria-label="Open study reminders"
+              class="icon-button notification-button"
+              id="notificationButton"
+              title="Study reminders"
+            >
+              <span> ♧ </span>
+              <i hidden="" id="notificationDot"> </i>
+            </button>
+            <button
+              aria-label="Profile and settings"
+              class="profile-button"
+              id="profileButton"
+            >
+              <span class="avatar"> A </span>
+              <span class="profile-copy">
+                <strong> Hello, Aman </strong>
+                <small> Keep going! 🚀 </small>
+              </span>
+            </button>
+          </div>
+        </header>
+        <!-- The content area changes view using the sidebar navigation. -->
+        <main class="page-content">
+          <section
+            aria-label="Dashboard"
+            class="view active-view"
+            id="dashboard"
+          >
+            <div class="hero-stats-row">
+              <section aria-labelledby="welcomeTitle" class="welcome-banner">
+                <div class="welcome-copy">
+                  <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+                  <h1 id="welcomeTitle">
+                    Good evening, Aman
+                    <span aria-hidden="true"> 👋 </span>
+                  </h1>
+                  <p id="weeklyMessage">Let's make today count.</p>
+                  <blockquote>
+                    &ldquo;Discipline today, freedom tomorrow.&rdquo;
+                  </blockquote>
+                </div>
+                <div class="weekly-progress-card">
+                  <strong id="currentDate"> Tuesday, October 27, 2026 </strong>
+                  <p id="weeklyProgressLabel">Your weekly progress</p>
+                  <div class="progress-track">
+                    <span id="weeklyProgressBar" style="width: 0%"> </span>
+                  </div>
+                  <small id="weeklyProgressText"> 0% complete </small>
+                </div>
+              </section>
+              <section aria-label="Assignment summary" class="stats-grid">
+                <article class="stat-card stat-pink">
+                  <span class="stat-icon"> ▣ </span>
+                  <strong id="dueThisWeekCount"> 0 </strong>
+                  <span> Due This Week </span>
+                </article>
+                <article class="stat-card stat-purple">
+                  <span class="stat-icon"> ◷ </span>
+                  <strong id="overdueCount"> 0 </strong>
+                  <span> Overdue </span>
+                </article>
+                <article class="stat-card stat-green">
+                  <span class="stat-icon"> &checkmark; </span>
+                  <strong id="completedCount"> 0 </strong>
+                  <span> Completed </span>
+                </article>
+                <article class="stat-card stat-yellow">
+                  <span class="stat-icon"> &starf; </span>
+                  <strong id="dayStreakCount"> 0 </strong>
+                  <span> Day Streak </span>
+                </article>
+              </section>
+            </div>
+            <div class="primary-grid">
+              <section
+                aria-labelledby="calendarHeading"
+                class="panel calendar-panel"
+                id="calendar-section"
+              >
+                <div class="panel-heading calendar-heading">
+                  <div class="heading-title">
+                    <span class="heading-icon green-icon"> ▦ </span>
+                    <h2 id="calendarHeading">Calendar &amp; Workload</h2>
+                  </div>
+                  <label class="compact-select-label">
+                    <span class="sr-only"> Workload filter </span>
+                    <select id="workloadFilter">
+                      <option value="all">View: All Tasks</option>
+                      <option value="pending">Pending</option>
+                      <option value="high">High Priority</option>
+                      <option value="completed">Completed</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="calendar-workload-layout">
+                  <div class="calendar-area">
+                    <div class="calendar-controls">
+                      <div class="month-controls">
+                        <button
+                          aria-label="Previous month"
+                          class="mini-button"
+                          id="prevMonth"
+                        >
+                          &lsaquo;
+                        </button>
+                        <button
+                          aria-label="Next month"
+                          class="mini-button"
+                          id="nextMonth"
+                        >
+                          &rsaquo;
+                        </button>
+                        <strong id="calendarMonth"> October 2026 </strong>
+                        <button class="subtle-button" id="todayButton">
+                          Today
+                        </button>
+                      </div>
+                    </div>
+                    <div aria-hidden="true" class="calendar-weekdays">
+                      <span> Sun </span>
+                      <span> Mon </span>
+                      <span> Tue </span>
+                      <span> Wed </span>
+                      <span> Thu </span>
+                      <span> Fri </span>
+                      <span> Sat </span>
+                    </div>
+                    <div
+                      aria-label="Monthly assignment calendar"
+                      class="calendar-grid"
+                      id="calendarGrid"
+                      role="grid"
+                    ></div>
+                    <div class="calendar-legend">
+                      <span>
+                        <i class="dot dot-high"> </i>
+                        High
+                      </span>
+                      <span>
+                        <i class="dot dot-medium"> </i>
+                        Medium
+                      </span>
+                      <span>
+                        <i class="dot dot-low"> </i>
+                        Low
+                      </span>
+                    </div>
+                  </div>
+                  <aside aria-label="Assignment workload" class="workload-area">
+                    <div class="workload-title">
+                      <h3 id="workloadTitle">Upcoming assignments</h3>
+                      <span class="muted-count" id="workloadCount">
+                        0 tasks
+                      </span>
+                    </div>
+                    <div class="workload-list" id="workloadList"></div>
+                    <button
+                      class="text-link workload-view-all"
+                      data-nav="assignments-page"
+                    >
+                      View all assignments
+                      <span aria-hidden="true"> &rarr; </span>
+                    </button>
+                  </aside>
+                </div>
+              </section>
+              <section
+                aria-labelledby="focusHeading"
+                class="panel focus-panel"
+                id="focus-section"
+              >
+                <div class="panel-heading">
+                  <div class="heading-title">
+                    <span class="heading-icon plant-icon"> &clubs; </span>
+                    <h2 id="focusHeading">Focus Garden</h2>
+                  </div>
+                  <button
+                    aria-label="Focus timer settings"
+                    class="icon-button panel-settings"
+                    id="focusSettingsButton"
+                    title="Focus timer settings"
+                  >
+                    ⚙
+                  </button>
+                </div>
+                <div
+                  aria-label="Focus session type"
+                  class="session-tabs"
+                  role="group"
+                >
+                  <button class="session-tab selected" data-session="pomodoro">
+                    Pomodoro
+                    <small> 25 min </small>
+                  </button>
+                  <button class="session-tab" data-session="short">
+                    Short Break
+                    <small> 5 min </small>
+                  </button>
+                  <button class="session-tab" data-session="long">
+                    Long Break
+                    <small> 15 min </small>
+                  </button>
+                </div>
+                <div class="focus-main">
+                  <div class="timer-side">
+                    <div
+                      aria-label="Focus timer, 25 minutes remaining"
+                      class="timer-ring"
+                      id="timerRing"
+                      role="img"
+                    >
+                      <div class="timer-face">
+                        <span id="timerModeLabel"> Focus Time </span>
+                        <strong id="timerDisplay"> 25:00 </strong>
+                        <span
+                          aria-live="polite"
+                          class="timer-status"
+                          id="timerStatus"
+                        >
+                          Ready when you are
+                        </span>
+                        <button
+                          aria-label="Start focus timer"
+                          class="timer-play"
+                          id="timerStartPause"
+                        >
+                          ▶
+                        </button>
+                      </div>
+                    </div>
+                    <div class="timer-secondary-controls">
+                      <button class="text-button" id="timerReset">
+                        &orarr; Reset
+                      </button>
+                      <button class="text-button" id="timerSkip">
+                        Skip session &rarr;
+                      </button>
+                    </div>
+                  </div>
+                  <div class="plant-side">
+                    <div class="plant-sparkle sparkle-one">✦</div>
+                    <div class="plant-sparkle sparkle-two">✧</div>
+                    <img
+                      alt="Your Focus Garden seedling, level 1"
+                      class="focus-plant"
+                      id="focusPlant"
+                      src="assets/plant-stage-1.svg"
+                    />
+                    <div class="plant-progress-card">
+                      <span class="plant-badge"> ✦ </span>
+                      <div>
+                        <strong id="plantStageLabel">
+                          Level 1 &middot; Seedling
+                        </strong>
+                        <small id="plantXpLabel">
+                          0 focus sessions &middot; 3 to next level
+                        </small>
+                      </div>
+                      <div class="plant-progress-track">
+                        <span id="plantProgressBar" style="width: 0%"> </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p class="focus-quote">
+                  &ldquo;Focus on progress, not perfection.&rdquo;
+                </p>
+                <div class="focus-stats-grid">
+                  <article>
+                    <span class="focus-stat-icon"> &clubs; </span>
+                    <strong id="sessionsToday"> 0 </strong>
+                    <small> Sessions Today </small>
+                  </article>
+                  <article>
+                    <span class="focus-stat-icon"> ◷ </span>
+                    <strong id="focusTotalTime"> 0m </strong>
+                    <small> Total Focus Time </small>
+                  </article>
+                  <article>
+                    <span class="focus-stat-icon"> ♨ </span>
+                    <strong id="focusDayStreak"> 0 </strong>
+                    <small> Day Streak </small>
+                  </article>
+                </div>
+              </section>
+            </div>
+            <div class="bottom-grid">
+              <section
+                aria-labelledby="todayHeading"
+                class="panel today-panel"
+                id="todayTasksCard"
+              >
+                <div class="panel-heading">
+                  <div class="heading-title">
+                    <span class="heading-icon green-icon"> ▤ </span>
+                    <h2 id="todayHeading">Today's Tasks</h2>
+                  </div>
+                  <button class="text-link" data-nav="assignments-page">
+                    View All
+                  </button>
+                </div>
+                <div class="today-task-list" id="todayTaskList"></div>
+                <form class="quick-add-form" id="quickAddForm">
+                  <label class="sr-only" for="quickTaskInput">
+                    Add a task for today
+                  </label>
+                  <input
+                    id="quickTaskInput"
+                    maxlength="100"
+                    placeholder="Add a new task..."
+                    type="text"
+                  />
+                  <button aria-label="Add task" type="submit">+</button>
+                </form>
+              </section>
+              <section
+                aria-labelledby="timetableHeading"
+                class="panel timetable-panel"
+                id="timetable-card"
+              >
+                <div class="panel-heading">
+                  <div class="heading-title">
+                    <span class="heading-icon green-icon"> ▦ </span>
+                    <h2 id="timetableHeading">Class Timetable</h2>
+                  </div>
+                  <div class="timetable-heading-controls">
+                    <button
+                      class="secondary-button timetable-edit-button"
+                      id="editTimetableButton"
+                      type="button"
+                    >
+                      ✎ Edit
+                    </button>
+                    <label class="compact-select-label">
+                      <span class="sr-only"> Select timetable day </span>
+                      <select id="timetableDay">
+                        <option value="today">Today</option>
+                        <option value="Mon">Monday</option>
+                        <option value="Tue">Tuesday</option>
+                        <option value="Wed">Wednesday</option>
+                        <option value="Thu">Thursday</option>
+                        <option value="Fri">Friday</option>
+                        <option value="Sat">Saturday</option>
+                        <option value="Sun">Sunday</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+                <div class="timetable-list" id="timetableList"></div>
+              </section>
+              <section
+                aria-labelledby="attendanceHeading"
+                class="panel attendance-panel"
+                id="attendance-card"
+              >
+                <div class="panel-heading">
+                  <div class="heading-title">
+                    <span class="heading-icon green-icon"> ♙ </span>
+                    <h2 id="attendanceHeading">Attendance</h2>
+                  </div>
+                  <div class="attendance-card-actions">
+                    <button
+                      class="secondary-button"
+                      id="manageSubjectAttendanceButton"
+                      type="button"
+                    >
+                      Manage subjects
+                    </button>
+                    <button
+                      aria-label="Edit overall attendance"
+                      class="icon-button small-action"
+                      id="editAttendanceButton"
+                    >
+                      ✎
+                    </button>
+                  </div>
+                </div>
+                <div class="attendance-overview">
+                  <div
+                    class="attendance-ring"
+                    id="attendanceRing"
+                    style="--attendance: 78"
+                  >
+                    <div>
+                      <strong id="attendancePercent"> 78.0% </strong>
+                    </div>
+                  </div>
+                  <span> Overall Attendance </span>
+                </div>
+                <div class="attendance-breakdown">
+                  <div>
+                    <span> Classes Attended </span>
+                    <strong id="classesAttended"> 78 </strong>
+                  </div>
+                  <div>
+                    <span> Classes Missed </span>
+                    <strong id="classesMissed"> 22 </strong>
+                  </div>
+                  <div>
+                    <span> Total Classes </span>
+                    <strong id="classesTotal"> 100 </strong>
+                  </div>
+                </div>
+                <div class="attendance-note" id="attendanceAdvice">
+                  <span> &clubs; </span>
+                  <div>
+                    <p>
+                      Attendance target:
+                      <strong id="attendanceTargetLabel"> 85% </strong>
+                    </p>
+                    <small id="attendanceAdviceMessage">
+                      Keep showing up to stay on track.
+                    </small>
+                  </div>
+                </div>
+              </section>
+              <section
+                aria-labelledby="sgpaHeading"
+                class="panel cgpa-panel"
+                id="cgpa-card"
+              >
+                <div class="panel-heading">
+                  <div class="heading-title">
+                    <span class="heading-icon green-icon"> ▦ </span>
+                    <h2 id="sgpaHeading">SGPA Calculator</h2>
+                  </div>
+                  <label class="compact-select-label">
+                    <span class="sr-only"> Semester </span>
+                    <select id="semesterSelect">
+                      <option value="3">Semester 3</option>
+                      <option value="1">Semester 1</option>
+                      <option value="2">Semester 2</option>
+                      <option value="4">Semester 4</option>
+                      <option value="5">Semester 5</option>
+                      <option value="6">Semester 6</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="cgpa-score">
+                  <strong id="cgpaValue"> 8.14 </strong>
+                  <span> Semester Grade Point Average </span>
+                </div>
+                <div class="cgpa-subject-list" id="cgpaSubjectList"></div>
+                <p class="sgpa-formula-note">
+                  MAKAUT credit-weighted semester result
+                </p>
+                <button
+                  class="primary-button calculate-button"
+                  id="editCgpaButton"
+                >
+                  Enter grades &amp; calculate SGPA
+                  <span aria-hidden="true"> &rarr; </span>
+                </button>
+              </section>
+            </div>
+          </section>
+          <section
+            aria-labelledby="assignmentsPageHeading"
+            class="view"
+            id="assignments-page"
+          >
+            <div class="page-title-row">
+              <div>
+                <p class="eyebrow">STAY AHEAD OF YOUR WORK</p>
+                <h1 id="assignmentsPageHeading">Assignments</h1>
+                <p class="page-subtitle">
+                  Keep every deadline visible and every next step manageable.
+                </p>
+              </div>
+              <button class="primary-button" id="addAssignmentButton">
+                ＋ Add assignment
+              </button>
+            </div>
+            <section class="panel assignment-manager">
+              <div class="assignment-toolbar">
+                <div
+                  aria-label="Filter assignments"
+                  class="filter-tabs"
+                  role="group"
+                >
+                  <button
+                    class="filter-tab active"
+                    data-assignment-filter="all"
+                  >
+                    All
+                    <span id="allAssignmentsBadge"> 0 </span>
+                  </button>
+                  <button class="filter-tab" data-assignment-filter="pending">
+                    Pending
+                  </button>
+                  <button class="filter-tab" data-assignment-filter="completed">
+                    Completed
+                  </button>
+                  <button class="filter-tab" data-assignment-filter="overdue">
+                    Overdue
+                  </button>
+                </div>
+                <label class="sort-label">
+                  Sort by
+                  <select id="assignmentSort">
+                    <option value="date-asc">Due date &middot; earliest</option>
+                    <option value="date-desc">Due date &middot; latest</option>
+                    <option value="priority">Priority</option>
+                    <option value="title">Title A&ndash;Z</option>
+                  </select>
+                </label>
+              </div>
+              <div class="assignment-list" id="assignmentList"></div>
+            </section>
+          </section>
+          <section
+            aria-labelledby="attendancePageHeading"
+            class="view"
+            id="attendance-page"
+          >
+            <div class="page-title-row">
+              <div>
+                <p class="eyebrow">KEEP YOUR RECORDS ACCURATE</p>
+                <h1 id="attendancePageHeading">Subject-wise Attendance</h1>
+                <p class="page-subtitle">
+                  Record every class and see how close you are to each
+                  attendance target.
+                </p>
+              </div>
+              <button
+                class="primary-button"
+                id="addAttendanceSubjectButton"
+                type="button"
+              >
+                ＋ Add subject
+              </button>
+            </div>
+            <section class="panel attendance-tracker-summary">
+              <div class="attendance-tracker-summary-copy">
+                <span class="eyebrow"> COMBINED ATTENDANCE </span>
+                <strong id="subjectAttendanceOverall"> 0.0% </strong>
+                <small id="subjectAttendanceCount"> 0 subjects tracked </small>
+              </div>
+              <div class="attendance-summary-breakdown">
+                <div>
+                  <span> Present </span>
+                  <strong id="subjectAttendanceAttended"> 0 </strong>
+                </div>
+                <div>
+                  <span> Absent </span>
+                  <strong id="subjectAttendanceMissed"> 0 </strong>
+                </div>
+                <div>
+                  <span> Total classes </span>
+                  <strong id="subjectAttendanceTotal"> 0 </strong>
+                </div>
+              </div>
+              <div
+                class="attendance-tracker-ring"
+                id="subjectAttendanceRing"
+                style="--attendance: 0"
+              >
+                <span> Overall </span>
+              </div>
+            </section>
+            <div class="section-heading-row">
+              <div>
+                <h2>Your subjects</h2>
+                <p>
+                  Use Present or Absent after each class. You can correct
+                  records with Edit.
+                </p>
+              </div>
+            </div>
+            <div
+              class="subject-attendance-grid"
+              id="subjectAttendanceList"
+            ></div>
+          </section>
+          <section
+            aria-labelledby="notesPageHeading"
+            class="view"
+            id="notes-page"
+          >
+            <div class="page-title-row">
+              <div>
+                <p class="eyebrow">YOUR PERSONAL NOTEBOOK</p>
+                <h1 id="notesPageHeading">Subject Notes</h1>
+                <p class="page-subtitle">
+                  Keep definitions, examples and revision notes organised by
+                  subject.
+                </p>
+              </div>
+              <button class="primary-button" id="addNoteButton" type="button">
+                ＋ Create note
+              </button>
+            </div>
+            <section class="panel notes-toolbar">
+              <label class="notes-search-label">
+                <span aria-hidden="true"> &telrec; </span>
+                <input
+                  id="notesSearch"
+                  placeholder="Search note title, subject, content or tags..."
+                  type="search"
+                />
+              </label>
+              <strong id="notesCount"> 0 notes </strong>
+            </section>
+            <div class="notes-grid" id="notesList"></div>
+          </section>
+          <section
+            aria-labelledby="analyticsPageHeading"
+            class="view"
+            id="analytics-page"
+          >
+            <div class="page-title-row">
+              <div>
+                <p class="eyebrow">SEE YOUR PROGRESS</p>
+                <h1 id="analyticsPageHeading">
+                  Academic &amp; Focus Analytics
+                </h1>
+                <p class="page-subtitle">
+                  Review semester results and understand your study consistency.
+                </p>
+              </div>
+            </div>
+            <section class="panel analytics-panel">
+              <div class="panel-heading">
+                <div class="heading-title">
+                  <span class="heading-icon green-icon"> ▦ </span>
+                  <h2>Semester SGPA history</h2>
+                </div>
+                <span class="muted-count"> MAKAUT grade scale </span>
+              </div>
+              <div
+                class="semester-analytics-grid"
+                id="semesterAnalyticsGrid"
+              ></div>
+              <div class="dgpa-summary">
+                <div>
+                  <span class="eyebrow"> THREE-YEAR DEGREE FORMULA </span>
+                  <h3>Indicative DGPA</h3>
+                  <p id="dgpaExplanation">
+                    Enter results for all six semesters to calculate the
+                    three-year DGPA.
+                  </p>
+                  <small id="yearlyGpaSummary">
+                    Year 1: pending &middot; Year 2: pending &middot; Year 3:
+                    pending
+                  </small>
+                </div>
+                <strong id="dgpaValue"> &mdash; </strong>
+              </div>
+            </section>
+            <section class="panel analytics-panel focus-analytics-panel">
+              <div class="panel-heading">
+                <div class="heading-title">
+                  <span class="heading-icon plant-icon"> &clubs; </span>
+                  <h2>Focus consistency</h2>
+                </div>
+                <span class="muted-count"> Last 7 days </span>
+              </div>
+              <div class="focus-goal-layout">
+                <div class="focus-goal-card">
+                  <span class="eyebrow"> TODAY'S FOCUS GOAL </span>
+                  <strong id="focusGoalText"> 0 / 60 minutes today </strong>
+                  <div class="progress-track">
+                    <span id="focusGoalBar" style="width: 0%"> </span>
+                  </div>
+                  <form class="focus-goal-form" id="focusGoalForm">
+                    <label for="focusGoalInput"> Daily target (minutes) </label>
+                    <input
+                      id="focusGoalInput"
+                      max="600"
+                      min="15"
+                      step="5"
+                      type="number"
+                      value="60"
+                    />
+                    <button class="secondary-button" type="submit">
+                      Save goal
+                    </button>
+                  </form>
+                </div>
+                <div class="weekly-focus-chart">
+                  <h3>Daily focus time</h3>
+                  <div class="weekly-focus-bars" id="weeklyFocusBars"></div>
+                </div>
+              </div>
+              <div class="section-heading-row">
+                <div>
+                  <h3>Recent completed sessions</h3>
+                  <p>Only completed Pomodoro sessions are counted.</p>
+                </div>
+              </div>
+              <div class="recent-focus-list" id="recentFocusSessions"></div>
+            </section>
+          </section>
+          <section
+            aria-labelledby="settingsHeading"
+            class="view"
+            id="settings-page"
+          >
+            <div class="page-title-row">
+              <div>
+                <p class="eyebrow">MAKE IT YOURS</p>
+                <h1 id="settingsHeading">Settings</h1>
+                <p class="page-subtitle">
+                  A few simple preferences for your study space.
+                </p>
+              </div>
+            </div>
+            <div class="settings-grid">
+              <section class="panel settings-card account-settings-card">
+                <div class="heading-title">
+                  <span class="heading-icon green-icon"> ♙ </span>
+                  <h2>Your account</h2>
+                </div>
+                <p id="accountSettingsDescription">You are signed in.</p>
+                <div class="account-setting-row">
+                  <div>
+                    <strong id="accountSettingsName"> Student </strong>
+                    <small id="accountSettingsEmail">
+                      student@example.com
+                    </small>
+                  </div>
+                  <button
+                    class="secondary-button"
+                    id="logoutButton"
+                    type="button"
+                  >
+                    Log out
+                  </button>
+                </div>
+              </section>
+              <section class="panel settings-card">
+                <div class="heading-title">
+                  <span class="heading-icon green-icon"> ☼ </span>
+                  <h2>Appearance</h2>
+                </div>
+                <p>
+                  Choose the theme that feels comfortable for your study
+                  sessions.
+                </p>
+                <div class="setting-row">
+                  <div>
+                    <strong> Dark theme </strong>
+                    <small> Switch to a darker colour palette. </small>
+                  </div>
+                  <button
+                    aria-checked="false"
+                    aria-label="Enable dark theme"
+                    class="toggle-switch"
+                    id="settingsThemeToggle"
+                    role="switch"
+                  >
+                    <span> </span>
+                  </button>
+                </div>
+              </section>
+              <section class="panel settings-card">
+                <div class="heading-title">
+                  <span class="heading-icon green-icon"> &orarr; </span>
+                  <h2>Demo data</h2>
+                </div>
+                <p>
+                  Restore the example assignments, timetable and academic values
+                  for this account only. Other accounts are not affected.
+                </p>
+                <button class="danger-button" id="resetDemoButton">
+                  Restore demo data
+                </button>
+              </section>
+              <section class="panel settings-card">
+                <div class="heading-title">
+                  <span class="heading-icon green-icon"> &udarr; </span>
+                  <h2>Backup &amp; restore</h2>
+                </div>
+                <p>
+                  Download a copy of this account's planner data or restore it
+                  later in this browser. Passwords and other accounts are never
+                  included.
+                </p>
+                <div class="backup-actions">
+                  <button
+                    class="secondary-button"
+                    id="exportBackupButton"
+                    type="button"
+                  >
+                    &darr; Export backup
+                  </button>
+                  <button
+                    class="secondary-button"
+                    id="importBackupButton"
+                    type="button"
+                  >
+                    &uarr; Import backup
+                  </button>
+                  <input
+                    accept=".json,application/json"
+                    hidden=""
+                    id="backupFileInput"
+                    type="file"
+                  />
+                </div>
+                <small class="backup-help">
+                  Backup files use JSON format. Keep them somewhere safe.
+                </small>
+              </section>
+              <section class="panel settings-card">
+                <div class="heading-title">
+                  <span class="heading-icon green-icon"> ♫ </span>
+                  <h2>Focus completion sound</h2>
+                </div>
+                <p>
+                  Play a gentle chime when a Pomodoro session finishes. The
+                  sound is stored locally with CampusBloom and works offline.
+                </p>
+                <div class="setting-row">
+                  <div>
+                    <strong> Play completion chime </strong>
+                    <small>
+                      Uses the included focus-complete.mp3 audio file.
+                    </small>
+                  </div>
+                  <button
+                    aria-checked="true"
+                    aria-label="Play focus completion sound"
+                    class="toggle-switch"
+                    id="focusSoundToggle"
+                    role="switch"
+                    type="button"
+                  >
+                    <span> </span>
+                  </button>
+                </div>
+              </section>
+              <section class="panel settings-card">
+                <div class="heading-title">
+                  <span class="heading-icon green-icon"> ⓘ </span>
+                  <h2>About CampusBloom</h2>
+                </div>
+                <p>
+                  A browser-based student planner built with HTML, CSS and
+                  vanilla JavaScript. This demo stores account records and your
+                  planner data in this browser using LocalStorage; there is no
+                  server or cross-device sync.
+                </p>
+                <div class="about-chips">
+                  <span> Offline-friendly </span>
+                  <span> LocalStorage </span>
+                  <span> Responsive UI </span>
+                </div>
+              </section>
+            </div>
+          </section>
+        </main>
+        <footer class="app-footer">
+          <span> CampusBloom </span>
+          <span> Plan a little. Progress a lot. </span>
+          <span id="footerYear"> &copy; 2026 </span>
+        </footer>
+      </div>
+    </div>
+    <div class="mobile-scrim" hidden="" id="mobileScrim"></div>
+    <dialog
+      aria-labelledby="subjectAttendanceDialogTitle"
+      class="modal modal-wide"
+      id="subjectAttendanceDialog"
+    >
+      <form class="modal-form" id="subjectAttendanceForm">
+        <div class="modal-heading">
+          <div>
+            <p class="eyebrow">SUBJECT ATTENDANCE</p>
+            <h2 id="subjectAttendanceDialogTitle">Add subject</h2>
+            <span class="modal-help" id="subjectAttendanceFormTitle">
+              Add a subject and its current attendance totals.
+            </span>
+          </div>
+          <button
+            aria-label="Close"
+            class="modal-close"
+            data-close-dialog="subjectAttendanceDialog"
+            type="button"
+          >
+            &times;
+          </button>
+        </div>
+        <input id="subjectAttendanceId" type="hidden" />
+        <label>
+          Subject name
+          <input
+            id="subjectAttendanceName"
+            maxlength="80"
+            placeholder="e.g. Database Management Systems"
+            required=""
+            type="text"
+          />
+        </label>
+        <div class="form-two-col">
+          <label>
+            Classes attended
+            <input
+              id="subjectAttendanceAttendedInput"
+              min="0"
+              required=""
+              step="1"
+              type="number"
+              value="0"
+            />
+          </label>
+          <label>
+            Total classes held
+            <input
+              id="subjectAttendanceTotalInput"
+              min="0"
+              required=""
+              step="1"
+              type="number"
+              value="0"
+            />
+          </label>
+        </div>
+        <label>
+          Attendance target (%)
+          <input
+            id="subjectAttendanceTarget"
+            max="100"
+            min="1"
+            required=""
+            step="0.1"
+            type="number"
+            value="75"
+          />
+        </label>
+        <p class="form-error" id="subjectAttendanceFormError" role="alert"></p>
+        <div class="modal-actions">
+          <button
+            class="secondary-button"
+            data-close-dialog="subjectAttendanceDialog"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button class="primary-button" type="submit">Save subject</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog
+      aria-labelledby="noteDialogTitle"
+      class="modal modal-wide"
+      id="noteDialog"
+    >
+      <form class="modal-form" id="noteForm">
+        <div class="modal-heading">
+          <div>
+            <p class="eyebrow">CAMPUSBLOOM NOTEBOOK</p>
+            <h2 id="noteDialogTitle">Create a note</h2>
+          </div>
+          <button
+            aria-label="Close"
+            class="modal-close"
+            data-close-dialog="noteDialog"
+            type="button"
+          >
+            &times;
+          </button>
+        </div>
+        <input id="noteId" type="hidden" />
+        <label>
+          Note title
+          <input
+            id="noteTitle"
+            maxlength="100"
+            placeholder="e.g. Normalization in DBMS"
+            required=""
+            type="text"
+          />
+        </label>
+        <div class="form-two-col">
+          <label>
+            Subject
+            <input
+              id="noteSubject"
+              maxlength="70"
+              placeholder="e.g. DBMS"
+              type="text"
+            />
+          </label>
+          <label>
+            Tags
+            <input
+              id="noteTags"
+              maxlength="120"
+              placeholder="normalization, exam, important"
+              type="text"
+            />
+          </label>
+        </div>
+        <label>
+          Note content
+          <textarea
+            id="noteContent"
+            maxlength="12000"
+            placeholder="Write your notes, definitions or examples..."
+            required=""
+            rows="9"
+          ></textarea>
+        </label>
+        <p class="form-error" id="noteFormError" role="alert"></p>
+        <div class="modal-actions">
+          <button
+            class="secondary-button"
+            data-close-dialog="noteDialog"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button class="primary-button" type="submit">Save note</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog
+      aria-labelledby="reminderDialogTitle"
+      class="modal modal-wide"
+      id="reminderDialog"
+    >
+      <div class="modal-form">
+        <div class="modal-heading">
+          <div>
+            <p class="eyebrow">YOUR STUDY DAY</p>
+            <h2 id="reminderDialogTitle">Reminders</h2>
+          </div>
+          <button
+            aria-label="Close"
+            class="modal-close"
+            data-close-dialog="reminderDialog"
+            type="button"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="reminder-list" id="reminderList"></div>
+        <div class="modal-actions">
+          <button
+            class="secondary-button"
+            data-close-dialog="reminderDialog"
+            type="button"
+          >
+            Close
+          </button>
+          <button
+            class="primary-button"
+            id="enableBrowserNotifications"
+            type="button"
+          >
+            Enable browser alerts
+          </button>
+        </div>
+        <small class="backup-help">
+          Browser alerts work only while CampusBloom is open. Permission is
+          optional.
+        </small>
+      </div>
+    </dialog>
+    <dialog
+      aria-labelledby="assignmentDialogTitle"
+      class="modal"
+      id="assignmentDialog"
+    >
+      <form class="modal-form" id="assignmentForm" method="dialog">
+        <div class="modal-heading">
+          <div>
+            <p class="eyebrow">ASSIGNMENT DETAILS</p>
+            <h2 id="assignmentDialogTitle">Add assignment</h2>
+          </div>
+          <button
+            aria-label="Close dialog"
+            class="modal-close"
+            data-close-dialog="assignmentDialog"
+            type="button"
+          >
+            &times;
+          </button>
+        </div>
+        <input id="assignmentId" type="hidden" />
+        <label>
+          Assignment title
+          <span class="required-mark"> * </span>
+          <input
+            id="assignmentTitle"
+            maxlength="100"
+            name="title"
+            placeholder="e.g. DBMS Assignment"
+            required=""
+          />
+        </label>
+        <label>
+          Subject
+          <span class="required-mark"> * </span>
+          <input
+            id="assignmentSubject"
+            maxlength="70"
+            name="subject"
+            placeholder="e.g. Database Management Systems"
+            required=""
+          />
+        </label>
+        <label>
+          Description
+          <textarea
+            id="assignmentDescription"
+            maxlength="500"
+            name="description"
+            placeholder="Optional notes or instructions"
+            rows="3"
+          ></textarea>
+        </label>
+        <div class="form-two-col">
+          <label>
+            Due date
+            <span class="required-mark"> * </span>
+            <input
+              id="assignmentDueDate"
+              name="dueDate"
+              required=""
+              type="date"
+            />
+          </label>
+          <label>
+            Priority
+            <select id="assignmentPriority" name="priority">
+              <option value="high">High</option>
+              <option selected="" value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </label>
+        </div>
+        <p class="form-error" id="assignmentFormError" role="alert"></p>
+        <div class="modal-actions">
+          <button
+            class="secondary-button"
+            data-close-dialog="assignmentDialog"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button class="primary-button" type="submit">Save assignment</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog
+      aria-labelledby="timetableDialogTitle"
+      class="modal modal-wide"
+      id="timetableDialog"
+    >
+      <div class="modal-form timetable-editor-form">
+        <div class="modal-heading">
+          <div>
+            <p class="eyebrow">YOUR PERSONAL SCHEDULE</p>
+            <h2 id="timetableDialogTitle">Edit timetable</h2>
+          </div>
+          <button
+            aria-label="Close timetable editor"
+            class="modal-close"
+            data-close-dialog="timetableDialog"
+            type="button"
+          >
+            &times;
+          </button>
+        </div>
+        <p class="modal-help">
+          Add, edit or remove classes here. Changes are saved to your account in
+          this browser.
+        </p>
+        <div
+          aria-live="polite"
+          class="timetable-editor-list"
+          id="timetableEditorList"
+        ></div>
+        <div class="timetable-entry-divider">
+          <span id="timetableEntryFormHeading"> Add a class </span>
+          <span> Class details </span>
+        </div>
+        <form class="timetable-entry-form" id="timetableEntryForm">
+          <input id="timetableEntryId" type="hidden" value="" />
+          <div class="form-two-col">
+            <label>
+              Subject name
+              <span class="required-mark"> * </span>
+              <input
+                id="timetableSubjectInput"
+                maxlength="80"
+                placeholder="e.g. Database Management Systems"
+                required=""
+                type="text"
+              />
+            </label>
+            <label>
+              Room / lab
+              <span class="required-mark"> * </span>
+              <input
+                id="timetableRoomInput"
+                maxlength="40"
+                placeholder="e.g. Room 204"
+                required=""
+                type="text"
+              />
+            </label>
+          </div>
+          <div class="timetable-form-grid">
+            <label>
+              Day
+              <select id="timetableEntryDay" required="">
+                <option value="Mon">Monday</option>
+                <option value="Tue">Tuesday</option>
+                <option value="Wed">Wednesday</option>
+                <option value="Thu">Thursday</option>
+                <option value="Fri">Friday</option>
+                <option value="Sat">Saturday</option>
+                <option value="Sun">Sunday</option>
+              </select>
+            </label>
+            <label>
+              Start time
+              <input
+                id="timetableStartInput"
+                required=""
+                type="time"
+                value="09:00"
+              />
+            </label>
+            <label>
+              End time
+              <input
+                id="timetableEndInput"
+                required=""
+                type="time"
+                value="10:00"
+              />
+            </label>
+            <label>
+              Accent colour
+              <input
+                aria-label="Class accent colour"
+                class="timetable-color-input"
+                id="timetableColorInput"
+                type="color"
+                value="#4f8ee8"
+              />
+            </label>
+          </div>
+          <p class="form-error" id="timetableFormError" role="alert"></p>
+          <div class="modal-actions timetable-form-actions">
+            <button
+              class="secondary-button"
+              hidden=""
+              id="cancelTimetableEditButton"
+              type="button"
+            >
+              Cancel edit
+            </button>
+            <button
+              class="primary-button"
+              id="saveTimetableEntryButton"
+              type="submit"
+            >
+              ＋ Add class
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <dialog
+      aria-labelledby="attendanceDialogTitle"
+      class="modal modal-small"
+      id="attendanceDialog"
+    >
+      <form class="modal-form" id="attendanceForm" method="dialog">
+        <div class="modal-heading">
+          <div>
+            <p class="eyebrow">ACADEMIC TRACKER</p>
+            <h2 id="attendanceDialogTitle">Update attendance</h2>
+          </div>
+          <button
+            aria-label="Close dialog"
+            class="modal-close"
+            data-close-dialog="attendanceDialog"
+            type="button"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="form-two-col">
+          <label>
+            Classes attended
+            <input
+              id="attendanceAttendedInput"
+              min="0"
+              required=""
+              step="1"
+              type="number"
+            />
+          </label>
+          <label>
+            Total classes held
+            <input
+              id="attendanceTotalInput"
+              min="0"
+              required=""
+              step="1"
+              type="number"
+            />
+          </label>
+        </div>
+        <label>
+          Target attendance (%)
+          <input
+            id="attendanceTargetInput"
+            max="100"
+            min="1"
+            required=""
+            step="0.1"
+            type="number"
+          />
+        </label>
+        <p class="form-error" id="attendanceFormError" role="alert"></p>
+        <div class="modal-actions">
+          <button
+            class="secondary-button"
+            data-close-dialog="attendanceDialog"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button class="primary-button" type="submit">Save attendance</button>
+        </div>
+      </form>
+    </dialog>
+    <!-- Dialogs used to edit semester grades and other dashboard data. -->
+    <dialog
+      aria-labelledby="cgpaDialogTitle"
+      class="modal modal-wide"
+      id="cgpaDialog"
+    >
+      <form class="modal-form" id="cgpaForm" method="dialog">
+        <div class="modal-heading">
+          <div>
+            <p class="eyebrow">MAKAUT GRADE SCALE</p>
+            <h2 id="cgpaDialogTitle">Calculate semester SGPA</h2>
+          </div>
+          <button
+            aria-label="Close dialog"
+            class="modal-close"
+            data-close-dialog="cgpaDialog"
+            type="button"
+          >
+            &times;
+          </button>
+        </div>
+        <p class="modal-help">
+          Enter each subject's credit value and MAKAUT letter grade. SGPA =
+          total credit points &divide; total credits.
+        </p>
+        <div aria-label="MAKAUT grade point scale" class="makaut-grade-guide">
+          <span>
+            <strong> O </strong>
+            Outstanding &middot; 10
+          </span>
+          <span>
+            <strong> E </strong>
+            Excellent &middot; 9
+          </span>
+          <span>
+            <strong> A </strong>
+            Very Good &middot; 8
+          </span>
+          <span>
+            <strong> B </strong>
+            Good &middot; 7
+          </span>
+          <span>
+            <strong> C </strong>
+            Fair &middot; 6
+          </span>
+          <span>
+            <strong> D </strong>
+            Below Average &middot; 5
+          </span>
+          <span>
+            <strong> F </strong>
+            Failed &middot; 2
+          </span>
+          <span>
+            <strong> I </strong>
+            Incomplete &middot; 2
+          </span>
+        </div>
+        <div class="cgpa-editor-head">
+          <span> Subject name </span>
+          <span> Credits </span>
+          <span> Grade </span>
+          <span> </span>
+        </div>
+        <div class="cgpa-editor-rows" id="cgpaEditorRows"></div>
+        <button
+          class="secondary-button add-subject-button"
+          id="addCgpaSubject"
+          type="button"
+        >
+          ＋ Add subject
+        </button>
+        <p class="form-error" id="cgpaFormError" role="alert"></p>
+        <div class="modal-actions">
+          <button
+            class="secondary-button"
+            data-close-dialog="cgpaDialog"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button class="primary-button" type="submit">
+            Save &amp; calculate SGPA
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <!-- Shown when a Pomodoro finishes successfully. -->
+    <dialog
+      aria-labelledby="focusCompletionTitle"
+      class="modal modal-small focus-completion-dialog"
+      id="focusCompleteDialog"
+    >
+      <div class="focus-completion-content">
+        <div class="focus-completion-plant-wrap">
+          <img
+            alt="Your Focus Garden plant has grown"
+            id="focusCompletionPlant"
+            src="assets/plant-stage-2.svg"
+          />
+        </div>
+        <p class="eyebrow">FOCUS SESSION COMPLETED</p>
+        <h2 id="focusCompletionTitle">Great work! 🎉</h2>
+        <p class="focus-completion-time" id="focusCompletionMinutes">
+          25 minutes well spent.
+        </p>
+        <p class="focus-completion-copy">
+          Your plant has grown. Consistency makes progress!
+        </p>
+        <div class="modal-actions">
+          <button
+            class="secondary-button"
+            data-close-dialog="focusCompleteDialog"
+            type="button"
+          >
+            Close
+          </button>
+          <button
+            class="primary-button"
+            id="focusCompletionStartBreak"
+            type="button"
+          >
+            Start short break
+          </button>
+        </div>
+      </div>
+    </dialog>
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      class="toast-region"
+      id="toastRegion"
+    ></div>
+  </body>
+</html>

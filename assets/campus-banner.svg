@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="300" viewBox="0 0 1400 300" role="img" aria-labelledby="title desc">
+<title id="title">CampusBloom campus landscape</title><desc id="desc">A calm sunny college campus with a modern academic building, trees and soft green lawns.</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#edf4e1"/><stop offset=".54" stop-color="#fbf4df"/><stop offset="1" stop-color="#d8e8d0"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c7ded7"/><stop offset=".55" stop-color="#edf3e8"/><stop offset="1" stop-color="#9bbeb4"/></linearGradient>
+  <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f7f5e9"/><stop offset="1" stop-color="#d7dfca"/></linearGradient>
+  <linearGradient id="lawn" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#bed58f"/><stop offset="1" stop-color="#8fb76e"/></linearGradient>
+  <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%"><feGaussianBlur stdDeviation="7"/></filter>
+</defs>
+<rect width="1400" height="300" fill="url(#sky)"/>
+<circle cx="1110" cy="61" r="40" fill="#fff5ca" opacity=".65"/>
+<circle cx="1110" cy="61" r="25" fill="#f9e59a" opacity=".85"/>
+<g fill="#fff" opacity=".52"><path d="M780 59q17-26 43-4q19-29 49-5q22 2 25 25H782q-12-5-2-16Z"/><path d="M1010 112q12-18 30-4q15-21 34-4q17 1 19 18h-80q-9-4-3-10Z"/></g>
+<path d="M0 209Q180 176 364 206T735 199T1090 192T1400 200V300H0Z" fill="#dce8c9"/>
+<path d="M0 237Q200 202 390 239T790 224T1170 228T1400 216V300H0Z" fill="url(#lawn)"/>
+<!-- Academic building with shaded wings and repeated windows. -->
+<ellipse cx="1005" cy="258" rx="332" ry="18" fill="#435e48" opacity=".13" filter="url(#softShadow)"/>
+<g transform="translate(720 38)">
+  <path d="M15 79L127 25L378 25L483 79Z" fill="#eff0e2" stroke="#c5cfbf" stroke-width="2"/>
+  <path d="M127 25H378V203H127Z" fill="url(#wall)" stroke="#c2ccbf" stroke-width="2"/>
+  <path d="M378 25L483 79V203L378 203Z" fill="#ccd9cf" stroke="#b4c3b8" stroke-width="2"/>
+  <path d="M127 25H378V40H127Z" fill="#dce7d9"/>
+  <path d="M144 52H362V66H144Z" fill="#fdfcf4" opacity=".8"/>
+  <g fill="url(#glass)" stroke="#b3c8bf" stroke-width="1.2">
+    <rect x="149" y="78" width="42" height="40" rx="2"/><rect x="205" y="78" width="42" height="40" rx="2"/><rect x="261" y="78" width="42" height="40" rx="2"/><rect x="317" y="78" width="42" height="40" rx="2"/>
+    <rect x="149" y="135" width="42" height="42" rx="2"/><rect x="205" y="135" width="42" height="42" rx="2"/><rect x="261" y="135" width="42" height="42" rx="2"/><rect x="317" y="135" width="42" height="42" rx="2"/>
+    <path d="M392 87L464 121V154L392 128Z"/><path d="M392 145L464 172V193L392 193Z"/>
+  </g>
+  <g stroke="#f9fff8" stroke-width="2" opacity=".8"><path d="M170 80V116M226 80V116M282 80V116M338 80V116M170 137V175M226 137V175M282 137V175M338 137V175"/></g>
+  <path d="M0 203H500" stroke="#9eac9e" stroke-width="5"/>
+  <path d="M115 203V176H389V203" fill="#e7eee3" stroke="#c0cbbd" stroke-width="2"/>
+  <path d="M220 203V176H280V203" fill="#9bb7a9"/>
+</g>
+<!-- Trees and shrubs at different depths. -->
+<g opacity=".98">
+  <g transform="translate(640 130)"><path d="M35 95V31" stroke="#8c6848" stroke-width="11" stroke-linecap="round"/><path d="M35 49L12 26M35 61L57 31" stroke="#8c6848" stroke-width="5" stroke-linecap="round"/><circle cx="19" cy="26" r="30" fill="#6f9c5e"/><circle cx="51" cy="26" r="32" fill="#87b46c"/><circle cx="35" cy="3" r="29" fill="#9bc47b"/><circle cx="12" cy="7" r="10" fill="#b7d492" opacity=".75"/></g>
+  <g transform="translate(1260 104) scale(1.2)"><path d="M36 112V35" stroke="#876243" stroke-width="12" stroke-linecap="round"/><path d="M36 63L10 35M36 73L62 39" stroke="#876243" stroke-width="5" stroke-linecap="round"/><circle cx="17" cy="33" r="31" fill="#669a58"/><circle cx="57" cy="31" r="34" fill="#83ad65"/><circle cx="37" cy="4" r="32" fill="#9abd77"/></g>
+  <g transform="translate(525 174) scale(.65)"><path d="M35 95V31" stroke="#8c6848" stroke-width="11"/><circle cx="18" cy="26" r="30" fill="#7fae67"/><circle cx="51" cy="26" r="32" fill="#9bc47b"/><circle cx="35" cy="3" r="29" fill="#8eb66d"/></g>
+  <g fill="#6e9c54"><circle cx="708" cy="249" r="19"/><circle cx="738" cy="250" r="25"/><circle cx="768" cy="250" r="17"/><circle cx="1190" cy="253" r="25"/><circle cx="1220" cy="252" r="18"/></g>
+  <g fill="#a8c97b"><circle cx="690" cy="248" r="8"/><circle cx="753" cy="238" r="8"/><circle cx="1210" cy="238" r="9"/></g>
+</g>
+<!-- A soft walkway leads toward the building. -->
+<path d="M830 300Q895 267 970 252Q1040 267 1120 300Z" fill="#e8e5d3" opacity=".86"/>
+<path d="M0 266Q200 249 390 260T760 260" fill="none" stroke="#dbe7c7" stroke-width="3" opacity=".7"/>
+<g fill="#fff7d8" opacity=".8"><circle cx="75" cy="238" r="3"/><circle cx="102" cy="251" r="2"/><circle cx="382" cy="239" r="3"/><circle cx="440" cy="263" r="2"/></g>
+</svg>
