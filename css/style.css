@@ -4248,6 +4248,7 @@ body[data-theme="dark"] .stat-card>span:last-child {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
+  line-clamp: 5;
   overflow: hidden;
   white-space: pre-wrap;
   margin: 13px 0;
@@ -4569,10 +4570,6 @@ body[data-theme="dark"] .stat-card>span:last-child {
   transform: scale(.96);
 }
 
-/* =========================================================
-   FOCUS COMPLETION CELEBRATION
-   Uses the same quiet green palette as the Focus Garden.
-========================================================= */
 .focus-completion-dialog {
   width: min(430px, calc(100vw - 28px));
 }

@@ -23,7 +23,6 @@
   };
   let soundEnabled = true;
 
-  // This short, original CampusBloom chime is stored locally in assets/sounds.
   const completionAudio = new Audio("assets/sounds/focus-complete.mp3");
   completionAudio.preload = "auto";
   completionAudio.volume = 0.32;
@@ -33,7 +32,6 @@
     completionAudio.pause();
     completionAudio.currentTime = 0;
     completionAudio.play().catch((error) => {
-      // A browser may block audio until the user interacts with the page.
       console.warn("Focus completion sound could not play:", error);
     });
   }
@@ -57,7 +55,6 @@
       DR.toast("Great work! Your focus session is complete.");
     }
 
-    // Use the browser notification only when the user enabled reminders.
     if (
       "Notification" in window &&
       Notification.permission === "granted" &&
@@ -343,42 +340,42 @@
     const plantStages = [
       {
         name: "Seedling",
-        asset: "assets/plant-stage-1.svg",
+        asset: "assets/plant-stage-1.png",
         alt: "A tiny seedling in a terracotta pot",
       },
       {
         name: "Sprout",
-        asset: "assets/plant-stage-2.svg",
+        asset: "assets/plant-stage-2.png",
         alt: "A young sprout in a terracotta pot",
       },
       {
         name: "Young Plant",
-        asset: "assets/plant-stage-3.svg",
+        asset: "assets/plant-stage-3.png",
         alt: "A small leafy plant in a terracotta pot",
       },
       {
         name: "Growing",
-        asset: "assets/plant-stage-4.svg",
+        asset: "assets/plant-stage-4.png",
         alt: "A taller branching plant in a terracotta pot",
       },
       {
         name: "Budding",
-        asset: "assets/plant-stage-5.svg",
+        asset: "assets/plant-stage-5.png",
         alt: "A mature plant with flower buds in a terracotta pot",
       },
       {
         name: "Blooming",
-        asset: "assets/plant-stage-6.svg",
+        asset: "assets/plant-stage-6.png",
         alt: "A flowering plant in a terracotta pot",
       },
       {
         name: "Flourishing",
-        asset: "assets/plant-stage-7.svg",
+        asset: "assets/plant-stage-7.png",
         alt: "A lush flowering plant in a terracotta pot",
       },
       {
         name: "Evergreen",
-        asset: "assets/plant-stage-8.svg",
+        asset: "assets/plant-stage-8.png",
         alt: "A fully grown flowering plant in a terracotta pot",
       },
     ];
@@ -412,7 +409,7 @@
 
     // Display a different local SVG as inactivity increases.
     if (health.rotten) {
-      image = "assets/plant-rotten.svg";
+      image = "assets/plant-rotten.png";
       imageAlt = "A completely rotten plant with dry leaves";
       stageLabel = "Garden lost · Start again";
       progressLabel =
@@ -420,13 +417,13 @@
       progressWidth = 0;
       healthState = "rotten";
     } else if (health.inactiveDays >= 5) {
-      image = "assets/plant-severely-wilted.svg";
+      image = "assets/plant-severely-wilted.png";
       imageAlt = "A severely wilted plant with brown drooping leaves";
       stageLabel = `Level ${level} · Severely wilted`;
       progressLabel = `${health.inactiveDays} inactive days · Complete a focus session to revive it`;
       healthState = "critical";
     } else if (health.inactiveDays >= 3) {
-      image = "assets/plant-withered.svg";
+      image = "assets/plant-withered.png";
       imageAlt = "A withering plant with yellowing leaves";
       stageLabel = `Level ${level} · Withering`;
       progressLabel = `${health.inactiveDays} inactive days · Your plant needs care`;
