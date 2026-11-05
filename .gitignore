@@ -1,0 +1,36 @@
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code and other editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Local backup and temporary copies
+*.bak
+*.old
+*.orig
+
+# Dependencies (if added in the future)
+node_modules/
+
+# Generated build and test files
+dist/
+build/
+coverage/
+playwright-report/
+test-results/

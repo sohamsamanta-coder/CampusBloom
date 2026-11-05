@@ -2,12 +2,12 @@
 
 A student productivity planner built with HTML, CSS and vanilla JavaScript. CampusBloom brings assignments, class schedules, attendance, semester grades, notes and study sessions into one browser-based dashboard.
 
-Developed by: Soham Samanta & Gourab Goswami 
+Developed by: Soham Samanta and Gourab Goswami  
 Repository: https://github.com/sohamsamanta-coder/CampusBloom
 
 ## About the project
 
-College work is spread across different places: assignment deadlines in one app, class timings in another, attendance in a notebook and study sessions in a timer. CampusBloom puts these everyday tasks together so students can check what needs attention and keep their academic information organised from one place.
+College work is often spread across different places: assignment deadlines in one app, class timings in another, attendance in a notebook and study sessions in a timer. CampusBloom brings these everyday tasks together so students can check what needs attention and keep their academic information organised from one place.
 
 The project is intended for demonstration and personal use in a browser. It does not need a server, database, API key or build process.
 
@@ -47,16 +47,14 @@ Breaks and skipped sessions do not count towards plant growth. Plant condition i
 - Optional browser notifications while the application is open and notification permission has been granted.
 - Daily focus-time goal, a seven-day focus summary and a list of recent completed Pomodoro sessions.
 
-### Backup and appearance
+### Appearance and usability
 
-- Export the signed-in account's planner data as a JSON file and restore it later.
-- Backup files do not include account credentials or other users' planner data.
 - Light theme by default, with an optional dark theme.
 - Responsive layout, keyboard-focus indicators, accessible labels and empty states.
 
 ## Getting started
 
-CampusBloom runs in a modern web browser. No installation of JavaScript packages is required.
+CampusBloom runs in a modern web browser. No JavaScript packages need to be installed.
 
 1. Download or clone this repository.
 2. Open the project folder in VS Code.
@@ -80,13 +78,12 @@ CampusBloom/
 │   ├── app.js                   # Shared state, storage, navigation and refresh
 │   ├── assignments.js           # Assignment management
 │   ├── calendar.js              # Monthly calendar and due-date markers
-│   ├── focus-timer.js           # Pomodoro timer and plant growth/health
-│   ├── academic.js              # Timetable, SGPA and base attendance tools
-│   ├── attendance-tracker.js    # Subject-wise attendance
-│   ├── notes.js                 # Subject notes and search
-│   ├── reminders.js             # Upcoming work and browser notifications
-│   ├── analytics.js             # Academic and focus analytics
-│   └── backup.js                # JSON export and restore
+│   ├── focus-timer.js            # Pomodoro timer and plant growth/health
+│   ├── academic.js               # Timetable, SGPA and base attendance tools
+│   ├── attendance-tracker.js     # Subject-wise attendance
+│   ├── notes.js                  # Subject notes and search
+│   ├── reminders.js               # Upcoming work and browser notifications
+│   └── analytics.js               # Academic and focus analytics
 └── assets/
     ├── logo.svg
     ├── campus-banner.svg
@@ -107,10 +104,11 @@ The scripts are split by feature so that each file has a focused responsibility.
 
 - `auth.js` manages the demo account screens and login state.
 - `app.js` provides shared application state, LocalStorage helpers, date utilities and dashboard initialisation.
-- Feature files such as `assignments.js`, `calendar.js`, `notes.js` and `reminders.js` handle their respective screens and actions.
+- `assignments.js`, `calendar.js`, `notes.js` and `reminders.js` handle their respective screens and actions.
+- `focus-timer.js` manages the Pomodoro timer, session records and plant growth and health.
 - `academic.js` contains the timetable and core academic calculations.
+- `attendance-tracker.js` manages subject-wise attendance records.
 - `analytics.js` prepares the academic and focus summaries.
-- `backup.js` handles exporting and restoring planner data.
 
 The files share common helpers through the application's `DR` object. Planner storage keys are scoped to the signed-in demo account so that two accounts in the same browser have separate planner data.
 
@@ -143,7 +141,7 @@ The mapping and example are for demonstrating the calculator. Check the current 
 
 CampusBloom uses the browser's `localStorage` to save demo accounts, the active session and each account's planner data. The project keeps the older `deadlineRadar_` storage prefix internally so that users upgrading from the earlier Deadline Radar version in the same browser can retain their saved data.
 
-This also means that data belongs to the browser profile where it was created. It is not automatically shared between browsers or devices.
+Data belongs to the browser profile where it was created. It is not automatically shared between browsers or devices. Clearing browser site data may remove saved accounts and planner information.
 
 ## Limitations
 
@@ -152,7 +150,7 @@ This also means that data belongs to the browser profile where it was created. I
 - Browser storage can be changed or cleared: Anyone with access to the browser profile or developer tools may inspect or modify LocalStorage. Clearing site data can remove the saved accounts and planner data.
 - No background reminder service: Browser notifications and reminder checks work while CampusBloom is open and permission has been granted.
 - Plant health is local: The plant's inactive-day rules are checked when the dashboard renders. There is no background timer running after the browser is closed.
-- Academic examples need verification: Semester 3 contains sample grade-card data; other semesters must be entered. Confirm all official grade calculations with your college.
+- Academic examples need verification: Semester 3 contains sample grade-card data; other semesters must be entered. Confirm official grade calculations with your college.
 - Sample timetable: The initial timetable entries are examples and should be edited to match your actual class schedule.
 
 A production version would need a backend, secure server-side authentication, a database and a proper notification service.
@@ -172,9 +170,8 @@ Use this checklist when trying the main features after making changes:
 9. Add and remove subject attendance records and test the target-attendance advice.
 10. Create, edit, search and delete notes.
 11. Check reminders using assignments due today and overdue assignments.
-12. Export a backup and test restoring it.
-13. Change the theme, refresh the page and test the layout at a narrow screen width.
-14. Check the browser console for errors.
+12. Change the theme, refresh the page and test the layout at a narrow screen width.
+13. Check the browser console for errors.
 
 ---
 
