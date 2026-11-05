@@ -734,7 +734,6 @@
     if (typeof DR.initNotes === "function") DR.initNotes();
     if (typeof DR.initReminders === "function") DR.initReminders();
     if (typeof DR.initAnalytics === "function") DR.initAnalytics();
-    if (typeof DR.initBackup === "function") DR.initBackup();
     DR.wired = true;
     window.DRAuth?.showApp();
 

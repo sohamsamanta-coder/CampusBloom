@@ -1,54 +1,71 @@
-# CampusBloom — Student Productivity Planner
+# CampusBloom
 
-CampusBloom is a responsive student productivity dashboard built with **HTML5, CSS3 and vanilla JavaScript**. It brings assignment planning, a monthly workload calendar, a browser-editable class timetable, attendance tracking, a MAKAUT-based SGPA calculator, subject-wise attendance, subject notes, reminders, academic analytics and a Pomodoro Focus Garden together in one light-themed interface.
+A student productivity planner built with HTML, CSS and vanilla JavaScript. CampusBloom brings assignments, class schedules, attendance, semester grades, notes and study sessions into one browser-based dashboard.
 
-The project is designed for a college submission and includes short comments in the source code to explain the main pieces of application logic.
+Developed by: Soham Samanta & Gourab Goswami 
+Repository: https://github.com/sohamsamanta-coder/CampusBloom
 
-## Run the project
+## About the project
 
-1. Extract the `CampusBloom` folder.
-2. Open that folder in VS Code.
-3. Open `index.html` with the Live Server extension. Opening it directly in a browser may also work, but Live Server is recommended.
-4. Register a demo account, or log in to an account already saved in that browser.
+College work is spread across different places: assignment deadlines in one app, class timings in another, attendance in a notebook and study sessions in a timer. CampusBloom puts these everyday tasks together so students can check what needs attention and keep their academic information organised from one place.
 
-There is no backend, database server, package manager, build step or API key to configure. The application uses ordinary browser JavaScript and local SVG assets.
+The project is intended for demonstration and personal use in a browser. It does not need a server, database, API key or build process.
 
 ## Features
 
-- **Login, registration and logout:** Each locally registered demo account has its own planner state and display name.
-- **Dashboard:** Current date, due-this-week and overdue totals, completed assignments, focus streak, weekly progress and today's due tasks.
-- **Assignment manager:** Create, edit, complete/reopen, filter, search, sort and delete assignments. Required fields are validated and deletion requires confirmation.
-- **Calendar & workload:** Month navigation, Today shortcut, priority markers and filtering by selected date.
-- **Focus Garden:** Pomodoro (25 minutes), short break (5 minutes) and long break (15 minutes), with start/pause/resume/reset/skip controls, per-account custom durations, a completion celebration dialog and an included gentle MP3 chime. The sound can be switched off in Settings.
-- **Focus Garden plant health:** Eight detailed botanical SVG illustrations show growth from Seedling through Evergreen. Every three completed Pomodoro sessions advances the plant one level. After 3–4 inactive calendar days it withers, after 5–6 days it becomes severely wilted, and after 7 days it rots and resets its growth. Completing a Pomodoro revives it. Focus history is kept even if the plant resets. Skipped sessions and breaks do not count as care. The campus banner and plant artwork are local SVGs, so the project does not depend on remote image URLs.
-- **Editable class timetable:** Add, edit and delete classes in the browser. Each entry stores its subject, day, start and end time, room and accent colour. Time overlaps on the same day are rejected. Changes persist for each account.
-- **Attendance tools:** The dashboard shows combined attendance. The Subject-wise Attendance page tracks each subject separately, records present/absent classes, supports add/edit/delete and calculates how many consecutive classes are needed to reach each subject target.
-- **MAKAUT SGPA and analytics:** Stores letter grades by semester and calculates credit-weighted SGPA. Semester 3 starts with the example records from the provided MAKAUT provisional grade card and calculates to **8.14** (171 credit points / 21 credits). Academic Analytics calculates YGPA from the odd/even semester credit weights and the three-year DGPA using the formula on the supplied grade card, once all six semester results are entered.
-- **Subject Notes:** Create, edit, search and delete personal notes with subject names and tags.
-- **Reminders:** See overdue assignments, upcoming deadlines and today’s classes. Optional browser notifications work while the app is open and permission is granted. A completed Pomodoro also shows a celebration message and plays the included local chime when sound is enabled.
-- **Focus analytics:** Set a daily study-time goal, see the last seven days of focus time and review recent completed Pomodoro sessions.
-- **Backup and restore:** Export the signed-in account’s planner data to JSON and import it in another browser. Account credentials and other users’ data are excluded.
-- **Appearance and usability:** Light theme by default, optional dark theme, responsive layout, visible keyboard focus, empty states and accessible labels.
-- **Browser storage:** User profiles and planner data are saved to LocalStorage. Planner data is scoped by the current demo account.
+### Dashboard and assignments
 
-## MAKAUT grade scale used in the example
+- Dashboard summary for overdue work, assignments due this week, completed assignments and focus activity.
+- Add, edit, complete, reopen, search, filter, sort and delete assignments.
+- Monthly calendar with due-date markers, month navigation and a shortcut to the current date.
+- A view of today's tasks and upcoming deadlines.
 
-| Letter grade | Grade points | Classification shown on the provided card |
-|---|---:|---|
-| O | 10 | Outstanding |
-| E | 9 | Excellent |
-| A | 8 | Very Good |
-| B | 7 | Good |
-| C | 6 | Fair |
-| D | 5 | Below Average |
-| F | 2 | Failed |
-| I | 2 | Incomplete |
+### Focus Garden
 
-The semester result is calculated as:
+- Pomodoro timer with 25-minute focus sessions, 5-minute short breaks and 15-minute long breaks.
+- Start, pause, resume, reset and skip controls.
+- Custom timer durations and an option to turn the completion sound on or off.
+- A completion dialog and a bundled sound that plays when a focus session finishes.
+- A plant with eight growth stages. Every three completed Pomodoro sessions advances it by one stage.
+- The plant's condition changes after periods without a completed focus session: it begins to wither after 3–4 inactive days, becomes severely wilted after 5–6 days, and resets after 7 days. Completing a Pomodoro revives it. Focus history remains saved when the plant resets.
 
-`SGPA = sum(credits × grade points) / sum(credits)`
+Breaks and skipped sessions do not count towards plant growth. Plant condition is checked when the dashboard is rendered; it is not updated by a background process while the browser is closed.
 
-The mapping follows the user-provided grade card. For official academic decisions, confirm the applicable rules with MAKAUT or your college.
+### Academic tools
+
+- Editable weekly class timetable. Each class can include a subject, day, start and end time, room and colour.
+- The timetable checks for overlapping class times on the same day.
+- Overall attendance summary and a separate subject-wise attendance tracker.
+- Record present or absent classes, edit or remove entries, and see how many consecutive classes are needed to reach a subject's attendance target.
+- MAKAUT-based SGPA calculator using credit-weighted grade points.
+- Academic analytics for YGPA and DGPA when the required semester results have been entered.
+
+### Notes, reminders and analytics
+
+- Create, edit, search and delete subject notes, with subject names and tags.
+- Reminder view for overdue assignments, upcoming deadlines and today's classes.
+- Optional browser notifications while the application is open and notification permission has been granted.
+- Daily focus-time goal, a seven-day focus summary and a list of recent completed Pomodoro sessions.
+
+### Backup and appearance
+
+- Export the signed-in account's planner data as a JSON file and restore it later.
+- Backup files do not include account credentials or other users' planner data.
+- Light theme by default, with an optional dark theme.
+- Responsive layout, keyboard-focus indicators, accessible labels and empty states.
+
+## Getting started
+
+CampusBloom runs in a modern web browser. No installation of JavaScript packages is required.
+
+1. Download or clone this repository.
+2. Open the project folder in VS Code.
+3. Open `index.html` using the Live Server extension.
+4. Register a demo account, or sign in using an account already created in that browser.
+
+Opening `index.html` directly in a browser may also work. Live Server is recommended during development.
+
+There is no backend, database server, package manager, build step or API key to configure.
 
 ## Project structure
 
@@ -59,17 +76,17 @@ CampusBloom/
 ├── css/
 │   └── style.css
 ├── js/
-│   ├── auth.js                  # Local demo login, registration and logout
+│   ├── auth.js                  # Demo registration, login and logout
 │   ├── app.js                   # Shared state, storage, navigation and refresh
-│   ├── assignments.js           # Assignment create/edit/complete/delete
+│   ├── assignments.js           # Assignment management
 │   ├── calendar.js              # Monthly calendar and due-date markers
-│   ├── focus-timer.js           # Pomodoro, plant growth and plant decay
-│   ├── academic.js              # Timetable, MAKAUT SGPA and base attendance
-│   ├── attendance-tracker.js    # Subject-wise attendance records
+│   ├── focus-timer.js           # Pomodoro timer and plant growth/health
+│   ├── academic.js              # Timetable, SGPA and base attendance tools
+│   ├── attendance-tracker.js    # Subject-wise attendance
 │   ├── notes.js                 # Subject notes and search
-│   ├── reminders.js             # Upcoming work and browser alerts
-│   ├── analytics.js             # SGPA/DGPA and focus analytics
-│   └── backup.js                # Per-account JSON export and restore
+│   ├── reminders.js             # Upcoming work and browser notifications
+│   ├── analytics.js             # Academic and focus analytics
+│   └── backup.js                # JSON export and restore
 └── assets/
     ├── logo.svg
     ├── campus-banner.svg
@@ -84,41 +101,81 @@ CampusBloom/
         └── focus-complete.mp3
 ```
 
-## A few useful code notes
+## How the JavaScript is organised
 
-- `app.js` defines the shared state and the LocalStorage helper functions. It also sends first-time logins and registrations to the dashboard after all features have initialised. Other JavaScript files use those helpers so the same assignment and timetable data appears consistently throughout the app.
-- `auth.js` handles the demo account screens. `app.js` scopes each user's planner keys to that user's ID.
-- `academic.js` contains the timetable editor and the MAKAUT SGPA rules. In the timetable card, click **Edit** to add, update or delete classes without changing source code.
-- `focus-timer.js` contains the Pomodoro countdown, local completion sound, completion dialog, eight growth stages and the plant health clock. The sound is an original gentle chime saved at `assets/sounds/focus-complete.mp3`. You can replace it with another appropriately licensed sound while keeping the same filename. Plant deterioration is checked when the dashboard renders; no background process runs while the browser is closed.
-- `css/style.css` uses CSS custom properties near the top of the file. Change those values to adjust the main colour palette. The new focus completion dialog and botanical illustrations use the same sage-green and terracotta visual language.
-- The internal LocalStorage prefix still uses `deadlineRadar_` intentionally so users updating an earlier Deadline Radar copy in the same browser can keep access to previously saved account and planner data. The visible product name is CampusBloom.
+The scripts are split by feature so that each file has a focused responsibility.
 
-## Important limitations
+- `auth.js` manages the demo account screens and login state.
+- `app.js` provides shared application state, LocalStorage helpers, date utilities and dashboard initialisation.
+- Feature files such as `assignments.js`, `calendar.js`, `notes.js` and `reminders.js` handle their respective screens and actions.
+- `academic.js` contains the timetable and core academic calculations.
+- `analytics.js` prepares the academic and focus summaries.
+- `backup.js` handles exporting and restoring planner data.
 
-- **Demo authentication only:** Account records and password hashes are held in browser LocalStorage. This is not production-grade security. Do not use a real or reused password or sensitive personal/academic information.
-- **No cross-browser or cross-device sync:** Chrome, Brave and other browsers maintain separate LocalStorage. Clearing site data may permanently erase demo accounts and their planner data.
-- **No cloud database:** Data stays in the current browser profile. A production release would need a backend, secure server-side authentication and a database.
-- **LocalStorage is user-editable:** Anyone with access to the browser profile or developer tools can inspect or modify saved values.
-- **SGPA/DGPA limitations:** Semester 3 is a sample based on the uploaded grade card; other semesters start empty. The three-year DGPA is shown only after six semester records are present. Verify official calculations with your college before using them for academic decisions.
-- **Demo timetable:** Timetable entries are sample classes at first. Edit the timetable in the browser to match your schedule.
-- **Reminders:** Browser notifications are not a background service; they are checked while CampusBloom is open.
-- **Plant decay:** The 3/5/7-day plant decay rules are local demo rules, not a real-time service. The app checks elapsed calendar days on load/render and records the last completed Pomodoro date. A completed Pomodoro plays a bundled two-second chime when the sound toggle is on; the audio file can be replaced with another licensed sound using the same path.
+The files share common helpers through the application's `DR` object. Planner storage keys are scoped to the signed-in demo account so that two accounts in the same browser have separate planner data.
 
-## Suggested test checklist
+## MAKAUT grade scale
 
-1. Register two demo accounts and confirm each account has separate assignments and timetable entries.
-2. Add an assignment, refresh, and check that it remains saved.
-3. Edit the timetable, add a class, try an overlapping time, then edit/delete a class and refresh.
-4. Mark an assignment complete and verify the dashboard and calendar update.
-5. Navigate across month boundaries and select both a date with tasks and an empty date.
-6. Start, pause, resume and reset the focus timer. For a quick test, use the Focus Garden settings to set a short Pomodoro duration.
-7. Complete a Pomodoro and check that focus statistics and plant growth update. Resetting or skipping should not increase plant progress.
-8. Confirm Semester 3 calculates to 8.14. Enter letter grades for another semester, refresh, and make sure each semester remains separate.
-9. Try invalid attendance counts and invalid SGPA entries and verify that validation messages appear.
-10. Add subjects to the attendance tracker, record Present and Absent, and test target advice.
-11. Create, edit, search and delete notes.
-12. Check reminders with due-today and overdue assignments; test browser notification permission if supported.
-13. Set a daily focus goal and inspect the seven-day chart.
-14. Test plant health by setting the `plantHealth` date in LocalStorage to 3, 5 and 7 days ago, then reload. Confirm the wilted SVG states and final reset.
-15. Export a backup, test import in a second browser/account, and confirm credentials are not included.
-16. Switch the theme, refresh, and test a narrow mobile viewport. Check the browser console for errors.
+The example grade mapping used by the SGPA calculator is based on the grade card supplied for this project.
+
+| Letter grade | Grade points | Classification |
+|---|---:|---|
+| O | 10 | Outstanding |
+| E | 9 | Excellent |
+| A | 8 | Very Good |
+| B | 7 | Good |
+| C | 6 | Fair |
+| D | 5 | Below Average |
+| F | 2 | Failed |
+| I | 2 | Incomplete |
+
+SGPA is calculated using the following formula:
+
+```text
+SGPA = sum(credits × grade points) / sum(credits)
+```
+
+Semester 3 is pre-filled with example records from the supplied grade card. Those records produce an SGPA of 8.14 (171 credit points divided by 21 credits). Other semesters start empty. YGPA and the three-year DGPA calculation require the relevant semester results to be entered.
+
+The mapping and example are for demonstrating the calculator. Check the current rules and your own result with MAKAUT or your college before using the figures for an official academic decision.
+
+## Data storage
+
+CampusBloom uses the browser's `localStorage` to save demo accounts, the active session and each account's planner data. The project keeps the older `deadlineRadar_` storage prefix internally so that users upgrading from the earlier Deadline Radar version in the same browser can retain their saved data.
+
+This also means that data belongs to the browser profile where it was created. It is not automatically shared between browsers or devices.
+
+## Limitations
+
+- Demo authentication only: Account information and password hashes are stored in browser LocalStorage. This is not production-grade authentication. Do not use a real or reused password, or store sensitive personal or academic information in the demo.
+- No cloud sync: Data stays in the current browser profile. It will not automatically appear on another device or in another browser.
+- Browser storage can be changed or cleared: Anyone with access to the browser profile or developer tools may inspect or modify LocalStorage. Clearing site data can remove the saved accounts and planner data.
+- No background reminder service: Browser notifications and reminder checks work while CampusBloom is open and permission has been granted.
+- Plant health is local: The plant's inactive-day rules are checked when the dashboard renders. There is no background timer running after the browser is closed.
+- Academic examples need verification: Semester 3 contains sample grade-card data; other semesters must be entered. Confirm all official grade calculations with your college.
+- Sample timetable: The initial timetable entries are examples and should be edited to match your actual class schedule.
+
+A production version would need a backend, secure server-side authentication, a database and a proper notification service.
+
+## Testing checklist
+
+Use this checklist when trying the main features after making changes:
+
+1. Register two demo accounts and check that their assignments and timetable entries remain separate.
+2. Add an assignment, refresh the page and confirm that it is still saved.
+3. Edit the timetable, add a class and try creating an overlapping class time.
+4. Complete and reopen an assignment. Check whether the dashboard and calendar update.
+5. Move between months and select dates with and without tasks.
+6. Start, pause, resume and reset the focus timer. Try a shorter custom duration for testing.
+7. Complete a Pomodoro and check the focus summary and plant growth. Confirm that resetting or skipping a session does not increase plant progress.
+8. Check that the example Semester 3 result displays an SGPA of 8.14.
+9. Add and remove subject attendance records and test the target-attendance advice.
+10. Create, edit, search and delete notes.
+11. Check reminders using assignments due today and overdue assignments.
+12. Export a backup and test restoring it.
+13. Change the theme, refresh the page and test the layout at a narrow screen width.
+14. Check the browser console for errors.
+
+---
+
+CampusBloom is a frontend college project built to bring common student planning and academic tools together in one place.

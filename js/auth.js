@@ -1,6 +1,4 @@
-/* CampusBloom demo authentication.
-  No backend is used; local accounts and planner data stay in this browser.
-   This is for a college demo, not production-grade authentication. */
+
 (() => {
   "use strict";
   const ACCOUNTS_KEY = "deadlineRadar_accounts";
