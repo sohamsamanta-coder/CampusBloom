@@ -4685,3 +4685,93 @@ body[data-theme="dark"] .focus-completion-plant-wrap {
     color: var(--green-dark);
     font-weight: 750;
 }
+
+/* ========================================
+   ATTENDANCE BUTTON IMPROVEMENTS
+======================================== */
+
+/* Attendance dashboard heading */
+.attendance-panel .panel-heading {
+    flex-wrap: wrap;
+}
+
+.attendance-panel .heading-title {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* Manage subjects and edit overall attendance */
+.attendance-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 7px;
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+
+#manageSubjectAttendanceButton {
+    min-height: 34px;
+    padding: 7px 12px;
+    font-size: 11px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.attendance-card-actions .small-action {
+    flex: 0 0 30px;
+}
+
+/* Keep all subject action buttons consistent */
+.subject-attendance-actions {
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.subject-attendance-actions .small-positive,
+.subject-attendance-actions .small-negative {
+    min-height: 34px;
+    padding: 6px 11px;
+    border-radius: 9px;
+    font-size: 11px;
+}
+
+/* Fix Edit and Delete buttons */
+.subject-attendance-actions .row-action {
+    width: auto;
+    min-width: 58px;
+    height: 34px;
+    padding: 0 11px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface);
+
+    color: var(--text-2);
+    font-size: 11px;
+    font-weight: 650;
+    white-space: nowrap;
+    line-height: 1;
+
+    transition: background .18s, border-color .18s;
+}
+
+.subject-attendance-actions .row-action:hover {
+    background: var(--surface-soft);
+    border-color: var(--border-strong);
+}
+
+/* Delete button */
+.subject-attendance-actions .row-action.danger-text {
+    color: var(--red);
+    background: var(--pink-soft);
+    border-color: color-mix(in srgb, var(--red) 20%, var(--border));
+}
+
+.subject-attendance-actions .row-action.danger-text:hover {
+    border-color: var(--red);
+}
